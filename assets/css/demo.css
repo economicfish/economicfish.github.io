@@ -223,3 +223,11 @@
 .pie-6{
   color: #d43737;
 }
+.pie-7{
+  color: #453d3f;
+}
+
+.custom-select{
+  height: 50px;
+  font-size: 20px !important;
+}

@@ -493,6 +493,7 @@ __webpack_require__.r(__webpack_exports__);
 
 const ROUTES = [
     { path: '/dashboard', title: 'Dashboard', icon: 'nc-chart-bar-32', class: '' },
+    { path: '/insights', title: 'Insights', icon: 'nc-bullet-list-67', class: '' },
 ];
 let SidebarComponent = class SidebarComponent {
     ngOnInit() {

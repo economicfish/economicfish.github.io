@@ -32302,18 +32302,7 @@ webpackContext.id = "./node_modules/moment/locale sync recursive ^\\.\\/.*$";
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-globe text-warning\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">People Surveyed</p>\n              <p class=\"card-title\">{{ gender[1] + gender[2] + gender [3] }}<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-mars\"></i> Male : {{gender[1]}}\n          <i class=\"fa fa-venus ml-2\"></i> Female : {{gender[2]}}\n          <i class=\"fa fa-transgender ml-2\"></i> Trans : {{gender[3]}}\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-money-coins text-success\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Money Savers</p>\n              <p class=\"card-title\">{{ saveMoney }}\n                <p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> {{((saveMoney/totalCount)*100).toFixed(2)}}% are able to save money\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-bank text-danger\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Type of Savings</p>\n              <p class=\"card-title\">{{((saveType[maxSaveTypeId]['count']/totalCount)*100).toFixed(2)}}%<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> Max people save using {{saveType[maxSaveTypeId]['id']}}\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-favourite-28 text-primary\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Earning Benefits</p>\n              <p class=\"card-title\">{{((earningBenefits[maxEarnBenefitsId]['count']/totalCount)*100).toFixed(2)}}%<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> {{earningBenefits[maxEarnBenefitsId]['id']}}\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Personal Details based on Age Group</h5>\n        <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n          <label for=\"exampleFormControlSelect1\"></label>\n          <select class=\"form-control\" #ageSelectId (change)='ageSelect(ageSelectId.value)'>\n            <option [value]=1>Only age</option>\n            <option [value]=2>Education</option>\n            <option [value]=3>Marital Status</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <canvas id=\"barChartAge\" width=\"400\" height=\"250\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-6\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Insights on Family</h5>\n        <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n          <label for=\"familySelectId\"></label>\n          <select class=\"form-control\" #familySelectId (change)='familySelect(familySelectId.value)'>\n            <option [value]=0>Family Type</option>\n            <option [value]=1># of Members</option>\n            <option [value]=2>House Type</option>\n            <option [value]=3># of Dependents</option>\n            <option [value]=4># of Members Earning</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <canvas id=\"pieChartFamily\" width=\"400\" height=\"195\"></canvas>\n      </div>\n      <div class=\"card-footer \">\n        <div class=\"legend text-center mt-3 mb-4\">\n          <span *ngFor=\"let label of currentFamilyPieLabels; let i = index\">\n            <i class=\"fa fa-circle pie-{{i+1}}\"></i> {{label}}\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Economic Contributions</h5>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n              <label for=\"workTypeSelectId\"></label>\n              <select class=\"form-control\" #workTypeSelectId (change)='workTypeSelect(workTypeSelectId.value)'>\n                <option [value]=0>Normal Type of Works</option>\n                <option [value]=1>Work during Fishing ban</option>>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n              <label for=\"workSelectId\"></label>\n              <select class=\"form-control\" #workSelectId (change)='workSelect(workSelectId.value)'>\n                <option [value]=0>Working Years</option>\n                <option [value]=1>Working Hours</option>\n                <option [value]=2>Is Help Taken in Work</option>\n                <option [value]=3>Helpers in Work</option>\n                <option [value]=4>Earnings per day at Work</option>\n                <option [value]=5>Financial Management</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <canvas id=\"barChartWork\" width=\"400\" height=\"250\"></canvas>\n          </div>\n          <div class=\"col-md-6\">\n            <canvas id=\"pieChartWork\" width=\"400\" height=\"200\"></canvas>\n            <div class=\"legend text-center mt-3\">\n              <span *ngFor=\"let label of currentWorkPieLabels; let i = index\">\n                <i class=\"fa fa-circle pie-{{i+1}}\"></i> {{label}}\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  \n</div>\n"
-
-/***/ }),
-
-/***/ "./node_modules/raw-loader/index.js!./src/app/pages/icons/icons.component.html":
-/*!****************************************************************************!*\
-  !*** ./node_modules/raw-loader!./src/app/pages/icons/icons.component.html ***!
-  \****************************************************************************/
-/*! no static exports found */
-/***/ (function(module, exports) {
-
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card demo-icons\">\n      <div class=\"card-header\">\n        <h5 class=\"card-title\">100 Awesome Nucleo Icons</h5>\n        <p class=\"card-category\">Handcrafted by our friends from\n          <a href=\"https://nucleoapp.com/?ref=1712\">NucleoApp</a>\n        </p>\n      </div>\n      <div class=\"card-body all-icons\">\n        <div id=\"icons-wrapper\">\n          <section>\n            <ul>\n              <li>\n                <i class=\"nc-icon nc-air-baloon\"></i>\n                <p>nc-air-baloon</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-album-2\"></i>\n                <p>nc-album-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-alert-circle-i\"></i>\n                <p>nc-alert-circle-i</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-align-center\"></i>\n                <p>nc-align-center</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-align-left-2\"></i>\n                <p>nc-align-left-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-ambulance\"></i>\n                <p>nc-ambulance</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-app\"></i>\n                <p>nc-app</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-atom\"></i>\n                <p>nc-atom</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-badge\"></i>\n                <p>nc-badge</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bag-16\"></i>\n                <p>nc-bag-16</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bank\"></i>\n                <p>nc-bank</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-basket\"></i>\n                <p>nc-basket</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bell-55\"></i>\n                <p>nc-bell-55</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bold\"></i>\n                <p>nc-bold</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-book-bookmark\"></i>\n                <p>nc-book-bookmark</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bookmark-2\"></i>\n                <p>nc-bookmark-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-box-2\"></i>\n                <p>nc-box-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-box\"></i>\n                <p>nc-box</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-briefcase-24\"></i>\n                <p>nc-briefcase-24</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bulb-63\"></i>\n                <p>nc-bulb-63</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bullet-list-67\"></i>\n                <p>nc-bullet-list-67</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-bus-front-12\"></i>\n                <p>nc-bus-front-12</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-button-pause\"></i>\n                <p>nc-button-pause</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-button-play\"></i>\n                <p>nc-button-play</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-button-power\"></i>\n                <p>nc-button-power</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-calendar-60\"></i>\n                <p>nc-calendar-60</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-camera-compact\"></i>\n                <p>nc-camera-compact</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-caps-small\"></i>\n                <p>nc-caps-small</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-cart-simple\"></i>\n                <p>nc-cart-simple</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-chart-bar-32\"></i>\n                <p>nc-chart-bar-32</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-chart-pie-36\"></i>\n                <p>nc-chart-pie-36</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-chat-33\"></i>\n                <p>nc-chat-33</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-check-2\"></i>\n                <p>nc-check-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-circle-10\"></i>\n                <p>nc-circle-10</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-cloud-download-93\"></i>\n                <p>nc-cloud-download-93</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-cloud-upload-94\"></i>\n                <p>nc-cloud-upload-94</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-compass-05\"></i>\n                <p>nc-compass-05</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-controller-modern\"></i>\n                <p>nc-controller-modern</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-credit-card\"></i>\n                <p>nc-credit-card</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-delivery-fast\"></i>\n                <p>nc-delivery-fast</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-diamond\"></i>\n                <p>nc-diamond</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-email-85\"></i>\n                <p>nc-email-85</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-favourite-28\"></i>\n                <p>nc-favourite-28</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-glasses-2\"></i>\n                <p>nc-glasses-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-globe-2\"></i>\n                <p>nc-globe-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-globe\"></i>\n                <p>nc-globe</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-hat-3\"></i>\n                <p>nc-hat-3</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-headphones\"></i>\n                <p>nc-headphones</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-html5\"></i>\n                <p>nc-html5</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-image\"></i>\n                <p>nc-image</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-istanbul\"></i>\n                <p>nc-istanbul</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-key-25\"></i>\n                <p>nc-key-25</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-laptop\"></i>\n                <p>nc-laptop</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-layout-11\"></i>\n                <p>nc-layout-11</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-lock-circle-open\"></i>\n                <p>nc-lock-circle-open</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-map-big\"></i>\n                <p>nc-map-big</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-minimal-down\"></i>\n                <p>nc-minimal-down</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-minimal-left\"></i>\n                <p>nc-minimal-left</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-minimal-right\"></i>\n                <p>nc-minimal-right</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-minimal-up\"></i>\n                <p>nc-minimal-up</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-mobile\"></i>\n                <p>nc-mobile</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-money-coins\"></i>\n                <p>nc-money-coins</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-note-03\"></i>\n                <p>nc-note-03</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-palette\"></i>\n                <p>nc-palette</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-paper\"></i>\n                <p>nc-paper</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-pin-3\"></i>\n                <p>nc-pin-3</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-planet\"></i>\n                <p>nc-planet</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-refresh-69\"></i>\n                <p>nc-refresh-69</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-ruler-pencil\"></i>\n                <p>nc-ruler-pencil</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-satisfied\"></i>\n                <p>nc-satisfied</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-scissors\"></i>\n                <p>nc-scissors</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-send\"></i>\n                <p>nc-send</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-settings-gear-65\"></i>\n                <p>nc-settings-gear-65</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-settings\"></i>\n                <p>nc-settings</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-share-66\"></i>\n                <p>nc-share-66</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-shop\"></i>\n                <p>nc-shop</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-simple-add\"></i>\n                <p>nc-simple-add</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-simple-delete\"></i>\n                <p>nc-simple-delete</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-simple-remove\"></i>\n                <p>nc-simple-remove</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-single-02\"></i>\n                <p>nc-single-02</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-single-copy-04\"></i>\n                <p>nc-single-copy-04</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-sound-wave\"></i>\n                <p>nc-sound-wave</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-spaceship\"></i>\n                <p>nc-spaceship</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-sun-fog-29\"></i>\n                <p>nc-sun-fog-29</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-support-17\"></i>\n                <p>nc-support-17</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tablet-2\"></i>\n                <p>nc-tablet-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tag-content\"></i>\n                <p>nc-tag-content</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tap-01\"></i>\n                <p>nc-tap-01</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tie-bow\"></i>\n                <p>nc-tie-bow</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tile-56\"></i>\n                <p>nc-tile-56</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-time-alarm\"></i>\n                <p>nc-time-alarm</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-touch-id\"></i>\n                <p>nc-touch-id</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-trophy\"></i>\n                <p>nc-trophy</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-tv-2\"></i>\n                <p>nc-tv-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-umbrella-13\"></i>\n                <p>nc-umbrella-13</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-user-run\"></i>\n                <p>nc-user-run</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-vector\"></i>\n                <p>nc-vector</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-watch-time\"></i>\n                <p>nc-watch-time</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-world-2\"></i>\n                <p>nc-world-2</p>\n              </li>\n              <li>\n                <i class=\"nc-icon nc-zoom-split\"></i>\n                <p>nc-zoom-split</p>\n              </li>\n              <!-- list of icons here with the proper class-->\n            </ul>\n          </section>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-globe text-warning\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">People Surveyed</p>\n              <p class=\"card-title\">{{ gender[1] + gender[2] + gender [3] }}<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-mars\"></i> Male : {{gender[1]}}\n          <i class=\"fa fa-venus ml-2\"></i> Female : {{gender[2]}}\n          <i class=\"fa fa-transgender ml-2\"></i> Trans : {{gender[3]}}\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-money-coins text-success\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Money Savers</p>\n              <p class=\"card-title\">{{ saveMoney }}\n                <p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> {{((saveMoney/totalCount)*100).toFixed(2)}}% are able to save money\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-bank text-danger\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Type of Savings</p>\n              <p class=\"card-title\">{{((saveType[maxSaveTypeId]['count']/totalCount)*100).toFixed(2)}}%<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> Max people save using {{saveType[maxSaveTypeId]['id']}}\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-lg-3 col-md-6 col-sm-6\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-5 col-md-4\">\n            <div class=\"icon-big text-center icon-warning\">\n              <i class=\"nc-icon nc-favourite-28 text-primary\"></i>\n            </div>\n          </div>\n          <div class=\"col-7 col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-category\">Earning Benefits</p>\n              <p class=\"card-title\">{{((earningBenefits[maxEarnBenefitsId]['count']/totalCount)*100).toFixed(2)}}%<p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> {{earningBenefits[maxEarnBenefitsId]['id']}}\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Personal Details based on Age Group</h5>\n        <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n          <label for=\"exampleFormControlSelect1\"></label>\n          <select class=\"form-control\" #ageSelectId (change)='ageSelect(ageSelectId.value)'>\n            <option [value]=1>Only age</option>\n            <option [value]=2>Education</option>\n            <option [value]=3>Marital Status</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <canvas id=\"barChartAge\" width=\"400\" height=\"250\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-6\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Insights on Family</h5>\n        <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n          <label for=\"familySelectId\"></label>\n          <select class=\"form-control\" #familySelectId (change)='familySelect(familySelectId.value)'>\n            <option [value]=0>Family Type</option>\n            <option [value]=1># of Members</option>\n            <option [value]=2>House Type</option>\n            <option [value]=3># of Dependents</option>\n            <option [value]=4># of Members Earning</option>\n          </select>\n        </div>\n      </div>\n      <div class=\"card-body \">\n        <canvas id=\"pieChartFamily\" width=\"400\" height=\"195\"></canvas>\n      </div>\n      <div class=\"card-footer \">\n        <div class=\"legend text-center mt-3 mb-4\">\n          <span *ngFor=\"let label of currentFamilyPieLabels; let i = index\">\n            <i class=\"fa fa-circle pie-{{i+1}}\"></i> {{label}}\n          </span>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Economic Contributions</h5>\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n              <label for=\"workTypeSelectId\"></label>\n              <select class=\"form-control\" #workTypeSelectId (change)='workTypeSelect(workTypeSelectId.value)'>\n                <option [value]=0>Normal Type of Works</option>\n                <option [value]=1>Work during Fishing ban</option>>\n              </select>\n            </div>\n          </div>\n          <div class=\"col-md-6\">\n            <div class=\"form-group\" style=\"display: inline-block; float: right;\">\n              <label for=\"workSelectId\"></label>\n              <select class=\"form-control\" #workSelectId (change)='workSelect(workSelectId.value)'>\n                <option [value]=0>Working Years</option>\n                <option [value]=1>Working Hours</option>\n                <option [value]=2>Is Help Taken in Work</option>\n                <option [value]=3>Helpers in Work</option>\n                <option [value]=4>Earnings per day at Work</option>\n                <option [value]=5>Financial Management</option>\n                <option [value]=6>Help Received from Government</option>\n                <option [value]=7>Help Received from NGOs</option>\n              </select>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"row\">\n          <div class=\"col-md-6\">\n            <canvas id=\"barChartWork\" width=\"400\" height=\"250\"></canvas>\n          </div>\n          <div class=\"col-md-6\">\n            <canvas id=\"pieChartWork\" width=\"400\" height=\"200\"></canvas>\n            <div class=\"legend text-center mt-3\">\n              <span *ngFor=\"let label of currentWorkPieLabels; let i = index\">\n                <i class=\"fa fa-circle pie-{{i+1}}\"></i> {{label}}\n              </span>\n            </div>\n          </div>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
 
 /***/ }),
 
@@ -32324,7 +32313,7 @@ module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div cla
 /*! no static exports found */
 /***/ (function(module, exports) {
 
-module.exports = "<div class=\"row\">\n  <div class=\"col-md-12\">\n    <div class=\"card\">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Simple Table</h4>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table\">\n            <thead class=\" text-primary\">\n              <th>\n                Name\n              </th>\n              <th>\n                Country\n              </th>\n              <th>\n                City\n              </th>\n              <th class=\"text-right\">\n                Salary\n              </th>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-right\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-right\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-right\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-right\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-right\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-right\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-right\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-12\">\n    <div class=\"card card-plain\">\n      <div class=\"card-header\">\n        <h4 class=\"card-title\"> Table on Plain Background</h4>\n        <p class=\"card-category\"> Here is a subtitle for this table</p>\n      </div>\n      <div class=\"card-body\">\n        <div class=\"table-responsive\">\n          <table class=\"table\">\n            <thead class=\" text-primary\">\n              <th>\n                Name\n              </th>\n              <th>\n                Country\n              </th>\n              <th>\n                City\n              </th>\n              <th class=\"text-right\">\n                Salary\n              </th>\n            </thead>\n            <tbody>\n              <tr>\n                <td>\n                  Dakota Rice\n                </td>\n                <td>\n                  Niger\n                </td>\n                <td>\n                  Oud-Turnhout\n                </td>\n                <td class=\"text-right\">\n                  $36,738\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Minerva Hooper\n                </td>\n                <td>\n                  Curaçao\n                </td>\n                <td>\n                  Sinaai-Waas\n                </td>\n                <td class=\"text-right\">\n                  $23,789\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Sage Rodriguez\n                </td>\n                <td>\n                  Netherlands\n                </td>\n                <td>\n                  Baileux\n                </td>\n                <td class=\"text-right\">\n                  $56,142\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Philip Chaney\n                </td>\n                <td>\n                  Korea, South\n                </td>\n                <td>\n                  Overland Park\n                </td>\n                <td class=\"text-right\">\n                  $38,735\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Doris Greene\n                </td>\n                <td>\n                  Malawi\n                </td>\n                <td>\n                  Feldkirchen in Kärnten\n                </td>\n                <td class=\"text-right\">\n                  $63,542\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Mason Porter\n                </td>\n                <td>\n                  Chile\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-right\">\n                  $78,615\n                </td>\n              </tr>\n              <tr>\n                <td>\n                  Jon Porter\n                </td>\n                <td>\n                  Portugal\n                </td>\n                <td>\n                  Gloucester\n                </td>\n                <td class=\"text-right\">\n                  $98,615\n                </td>\n              </tr>\n            </tbody>\n          </table>\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n"
+module.exports = "<div class=\"row\">\n  <div class=\"col-xs-12 col-lg-4\">\n    <h4 class=\"card-title\">\n      <div class=\"form-group\">\n        <label for=\"\"></label>\n        <select class=\"form-control custom-select\" #typeSelectId (change)='typeSelect(typeSelectId.value)'>\n          <option [value]=0>Post Harvest Facilities</option>\n          <option [value]=1>Awareness On Government Policies</option>\n          <option [value]=2>Awareness On Environmental Polution</option>\n        </select>\n      </div>\n    </h4>\n  </div>\n</div>\n<div class=\"row\">\n  <div class=\"col-md-6 col-sm-6\" *ngFor=\"let data of currentDataset; let i = index\">\n    <div class=\"card card-stats\">\n      <div class=\"card-body \">\n        <div class=\"row\">\n          <div class=\"col-md-4\">\n            <div class=\"icon-big text-center icon-warning pie-{{(i%7)+1}}\">\n              {{((data['yes']/totalCount)*100).toFixed(2)}}%\n            </div>\n          </div>\n          <div class=\"col-md-8\">\n            <div class=\"numbers\">\n              <p class=\"card-title\"><p>\n              <p class=\"card-category text-dark\">{{data['stmt']}}</p>\n            </div>\n          </div>\n        </div>\n      </div>\n      <div class=\"card-footer \">\n        <hr>\n        <div class=\"stats\">\n          <i class=\"fa fa-info\"></i> {{data['yes']}} of {{totalCount}} people think this way\n        </div>\n      </div>\n    </div>\n  </div>\n</div>\n<div class=\"row\" [hidden]=\"currentId != 2\">\n  <div class=\"col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Is sustainable development possible in fisheries</h5>\n      </div>\n      <div class=\"card-body\">\n        <canvas id=\"barChart1\" width=\"400\" height=\"100\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Steps taken to avoid pollution</h5>\n      </div>\n      <div class=\"card-body\">\n        <canvas id=\"barChart2\" width=\"400\" height=\"100\"></canvas>\n      </div>\n    </div>\n  </div>\n  <div class=\"col-md-12\">\n    <div class=\"card \">\n      <div class=\"card-header \">\n        <h5 class=\"card-title\" style=\"display: inline-block;\">Solutions for marine pollution</h5>\n      </div>\n      <div class=\"card-body\">\n        <canvas id=\"barChart3\" width=\"400\" height=\"100\"></canvas>\n      </div>\n    </div>\n  </div>\n</div>"
 
 /***/ }),
 
@@ -32379,9 +32368,7 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony import */ var _admin_layout_routing__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! ./admin-layout.routing */ "./src/app/layouts/admin-layout/admin-layout.routing.ts");
 /* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__ = __webpack_require__(/*! ../../pages/dashboard/dashboard.component */ "./src/app/pages/dashboard/dashboard.component.ts");
 /* harmony import */ var _pages_table_table_component__WEBPACK_IMPORTED_MODULE_7__ = __webpack_require__(/*! ../../pages/table/table.component */ "./src/app/pages/table/table.component.ts");
-/* harmony import */ var _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! ../../pages/icons/icons.component */ "./src/app/pages/icons/icons.component.ts");
-/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
-
+/* harmony import */ var _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__ = __webpack_require__(/*! @ng-bootstrap/ng-bootstrap */ "./node_modules/@ng-bootstrap/ng-bootstrap/fesm2015/ng-bootstrap.js");
 
 
 
@@ -32399,12 +32386,11 @@ AdminLayoutModule = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
             _angular_common__WEBPACK_IMPORTED_MODULE_3__["CommonModule"],
             _angular_router__WEBPACK_IMPORTED_MODULE_2__["RouterModule"].forChild(_admin_layout_routing__WEBPACK_IMPORTED_MODULE_5__["AdminLayoutRoutes"]),
             _angular_forms__WEBPACK_IMPORTED_MODULE_4__["FormsModule"],
-            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_9__["NgbModule"]
+            _ng_bootstrap_ng_bootstrap__WEBPACK_IMPORTED_MODULE_8__["NgbModule"]
         ],
         declarations: [
             _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_6__["DashboardComponent"],
             _pages_table_table_component__WEBPACK_IMPORTED_MODULE_7__["TableComponent"],
-            _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_8__["IconsComponent"],
         ]
     })
 ], AdminLayoutModule);
@@ -32425,14 +32411,11 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "AdminLayoutRoutes", function() { return AdminLayoutRoutes; });
 /* harmony import */ var _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! ../../pages/dashboard/dashboard.component */ "./src/app/pages/dashboard/dashboard.component.ts");
 /* harmony import */ var _pages_table_table_component__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! ../../pages/table/table.component */ "./src/app/pages/table/table.component.ts");
-/* harmony import */ var _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ../../pages/icons/icons.component */ "./src/app/pages/icons/icons.component.ts");
-
 
 
 const AdminLayoutRoutes = [
     { path: 'dashboard', component: _pages_dashboard_dashboard_component__WEBPACK_IMPORTED_MODULE_0__["DashboardComponent"] },
-    { path: 'table', component: _pages_table_table_component__WEBPACK_IMPORTED_MODULE_1__["TableComponent"] },
-    { path: 'icons', component: _pages_icons_icons_component__WEBPACK_IMPORTED_MODULE_2__["IconsComponent"] },
+    { path: 'insights', component: _pages_table_table_component__WEBPACK_IMPORTED_MODULE_1__["TableComponent"] },
 ];
 
 
@@ -32614,7 +32597,6 @@ let DashboardComponent = class DashboardComponent {
         this.drawAge();
         this.drawFamily();
         this.drawWork();
-        this.drawPieCharts();
     }
     drawAge() {
         let ageGroup = {
@@ -32913,7 +32895,8 @@ let DashboardComponent = class DashboardComponent {
                             '#fcc468',
                             '#ef8157',
                             '#37d493',
-                            '#d43737'
+                            '#d43737',
+                            '#453d3f'
                         ],
                         borderWidth: 0,
                         data: wcounts
@@ -33145,6 +33128,58 @@ let DashboardComponent = class DashboardComponent {
                 count: 0
             }
         ];
+        let governmentHelp = [
+            {
+                id: "Subsidy for Boat",
+                count: 0
+            },
+            {
+                id: "Housing",
+                count: 0
+            },
+            {
+                id: "Welfare Measure for Children's Education",
+                count: 0
+            },
+            {
+                id: "Loans",
+                count: 0
+            },
+            {
+                id: "Others",
+                count: 0
+            }
+        ];
+        let ngoHelp = [
+            {
+                id: "Job Training",
+                count: 0
+            },
+            {
+                id: "Capacity Building",
+                count: 0
+            },
+            {
+                id: "Awareness on Governemnt Policies",
+                count: 0
+            },
+            {
+                id: "Awareness on Environmental Issues",
+                count: 0
+            },
+            {
+                id: "Financial Assistance",
+                count: 0
+            },
+            {
+                id: "Children's Welfare Measure",
+                count: 0
+            },
+            {
+                id: "Others",
+                count: 0
+            }
+        ];
         this.csvData.forEach(value => {
             if (value["id"] === "")
                 return;
@@ -33157,10 +33192,12 @@ let DashboardComponent = class DashboardComponent {
                 workEarnings[value[_ques__WEBPACK_IMPORTED_MODULE_6__["ques"].workEarnings] - 1]['count'] += 1;
                 workBanType[value[_ques__WEBPACK_IMPORTED_MODULE_6__["ques"].workTypeBan] - 1]['count'] += 1;
                 manageFinance[value[_ques__WEBPACK_IMPORTED_MODULE_6__["ques"].manageFinancialNeeds] - 1]['count'] += 1;
+                governmentHelp[value[_ques__WEBPACK_IMPORTED_MODULE_6__["ques"].governmentHelp] - 1]['count'] += 1;
+                ngoHelp[value[_ques__WEBPACK_IMPORTED_MODULE_6__["ques"].ngoHelp] - 1]['count'] += 1;
             }
             catch (err) { }
         });
-        this.workPieChartDatasets = [workYears, workHours, workHelpTaken, workHelpers, workEarnings, manageFinance];
+        this.workPieChartDatasets = [workYears, workHours, workHelpTaken, workHelpers, workEarnings, manageFinance, governmentHelp, ngoHelp];
         this.workBarChartDatasets = [workType, workBanType];
         let counts = [];
         let labels = [];
@@ -33235,7 +33272,8 @@ let DashboardComponent = class DashboardComponent {
                             '#fcc468',
                             '#ef8157',
                             '#37d493',
-                            '#d43737'
+                            '#d43737',
+                            '#453d3f'
                         ],
                         borderWidth: 0,
                         data: wcounts
@@ -33258,8 +33296,6 @@ let DashboardComponent = class DashboardComponent {
         this.currentWorkPieLabels = wlabels;
         this.pieChartWork.update();
     }
-    drawPieCharts() {
-    }
 };
 DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
@@ -33268,33 +33304,6 @@ DashboardComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     }),
     tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_sibobs_service__WEBPACK_IMPORTED_MODULE_3__["SibobsService"]])
 ], DashboardComponent);
-
-
-
-/***/ }),
-
-/***/ "./src/app/pages/icons/icons.component.ts":
-/*!************************************************!*\
-  !*** ./src/app/pages/icons/icons.component.ts ***!
-  \************************************************/
-/*! exports provided: IconsComponent */
-/***/ (function(module, __webpack_exports__, __webpack_require__) {
-
-"use strict";
-__webpack_require__.r(__webpack_exports__);
-/* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "IconsComponent", function() { return IconsComponent; });
-/* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
-/* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
-
-
-let IconsComponent = class IconsComponent {
-};
-IconsComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
-    Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
-        selector: 'icons-cmp',
-        template: __webpack_require__(/*! raw-loader!./icons.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/icons/icons.component.html")
-    })
-], IconsComponent);
 
 
 
@@ -33312,39 +33321,440 @@ __webpack_require__.r(__webpack_exports__);
 /* harmony export (binding) */ __webpack_require__.d(__webpack_exports__, "TableComponent", function() { return TableComponent; });
 /* harmony import */ var tslib__WEBPACK_IMPORTED_MODULE_0__ = __webpack_require__(/*! tslib */ "./node_modules/tslib/tslib.es6.js");
 /* harmony import */ var _angular_core__WEBPACK_IMPORTED_MODULE_1__ = __webpack_require__(/*! @angular/core */ "./node_modules/@angular/core/fesm2015/core.js");
+/* harmony import */ var _services_sibobs_service__WEBPACK_IMPORTED_MODULE_2__ = __webpack_require__(/*! ./../../services/sibobs.service */ "./src/app/services/sibobs.service.ts");
+/* harmony import */ var rxjs__WEBPACK_IMPORTED_MODULE_3__ = __webpack_require__(/*! rxjs */ "./node_modules/rxjs/_esm2015/index.js");
+/* harmony import */ var rxjs_operators__WEBPACK_IMPORTED_MODULE_4__ = __webpack_require__(/*! rxjs/operators */ "./node_modules/rxjs/_esm2015/operators/index.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5__ = __webpack_require__(/*! chart.js */ "./node_modules/chart.js/dist/Chart.js");
+/* harmony import */ var chart_js__WEBPACK_IMPORTED_MODULE_5___default = /*#__PURE__*/__webpack_require__.n(chart_js__WEBPACK_IMPORTED_MODULE_5__);
+
+
+
+
 
 
 let TableComponent = class TableComponent {
+    constructor(_so) {
+        this._so = _so;
+        this.unsubscribe$ = new rxjs__WEBPACK_IMPORTED_MODULE_3__["Subject"]();
+        this.totalCount = 0;
+        this.dataset1 = [
+            {
+                "stmt": "satisfied with hygiene standars of storage facilities available",
+                "id": "q30",
+                "yes": 0
+            },
+            {
+                "stmt": "feel that they are paid less for the yield /goods supplied",
+                "id": "q31",
+                "yes": 0
+            },
+            {
+                "stmt": "think that the middle men are exploiting fishermen by paying less for their yield",
+                "id": "q32",
+                "yes": 0
+            },
+            {
+                "stmt": "think exporting Indian Fish products abroad provide maximum profits than the retail selling in local markets",
+                "id": "q33",
+                "yes": 0
+            },
+            {
+                "stmt": "think that small fishes are being utilized properly without wastage",
+                "id": "q34",
+                "yes": 0
+            },
+            {
+                "stmt": "say that there are sufficient provision to prevent loss of yield/catches",
+                "id": "q35",
+                "yes": 0
+            },
+            {
+                "stmt": "think the Indian Fish products can improve quality to attract International Markets",
+                "id": "q36",
+                "yes": 0
+            },
+            {
+                "stmt": "have experienced the growing decline in the yield /catches",
+                "id": "q37",
+                "yes": 0
+            },
+            {
+                "stmt": "think more number of women are interested in joining fishing industry",
+                "id": "q38",
+                "yes": 0
+            },
+            {
+                "stmt": "were able to market all their goods without wastage",
+                "id": "q39",
+                "yes": 0
+            },
+            {
+                "stmt": "think the Government should reduce the ban period of fishing",
+                "id": "q40",
+                "yes": 0
+            },
+            {
+                "stmt": "think the compensation paid by the Government for the ban period of fishing is sufficient",
+                "id": "q41",
+                "yes": 0
+            }
+        ];
+        this.dataset2 = [
+            {
+                "stmt": "are aware of the Marine Fishing Policy",
+                "id": "q42",
+                "yes": 0
+            },
+            {
+                "stmt": "think Government of India should ban Indian Fisherman from fishing in other countries' waters",
+                "id": "q43",
+                "yes": 0
+            },
+            {
+                "stmt": "think Indian Government should provide more facilities to fishermen considering the risks involved in their profession",
+                "id": "q44",
+                "yes": 0
+            },
+            {
+                "stmt": "are aware of the advantages of having Vessel Monitoring Systems on board fishing vessels",
+                "id": "q45",
+                "yes": 0
+            },
+            {
+                "stmt": "are willing to fit Vessel Monitoring System in their vessel with Government subsidy",
+                "id": "q46",
+                "yes": 0
+            },
+            {
+                "stmt": "think the Government has alerted and evacuated people during calamities",
+                "id": "q47",
+                "yes": 0
+            },
+            {
+                "stmt": "agree to the vessel registration and licensing policy",
+                "id": "q48",
+                "yes": 0
+            },
+            {
+                "stmt": "are satisfied with the government welfare policies to the fishermen communities",
+                "id": "q49",
+                "yes": 0
+            },
+            {
+                "stmt": "agree that Government should provide more better storage facilities for the catches with modern tecniques",
+                "id": "q50",
+                "yes": 0
+            },
+            {
+                "stmt": "think the Insurance coverage schemes are sufficient for the fishermen communities",
+                "id": "q51",
+                "yes": 0
+            },
+            {
+                "stmt": "think the monetary compensation provided for ban period is sufficient",
+                "id": "q52",
+                "yes": 0
+            },
+            {
+                "stmt": "think Government should formulate more effective policies to help the growth of mariculture farming",
+                "id": "q53",
+                "yes": 0
+            },
+        ];
+        this.dataset3 = [
+            {
+                "stmt": "think fishery resources are exhaustive",
+                "id": "q54",
+                "yes": 0
+            },
+            {
+                "stmt": "think there is depletion of marine resources",
+                "id": "q55",
+                "yes": 0
+            },
+            {
+                "stmt": "agree uncontrollable harvest will exhaust marine resources",
+                "id": "q56",
+                "yes": 0
+            },
+            {
+                "stmt": "think the pollution of marine waters are due to dumping of waste into the seas",
+                "id": "q57",
+                "yes": 0
+            },
+            {
+                "stmt": "think there are sufficient steps taken for the protection of maritime industry",
+                "id": "q58",
+                "yes": 0
+            },
+            // {
+            //     "stmt": "",
+            //     "id": "q59",
+            //     "yes": 0
+            // },
+            // {
+            //     "stmt": "",
+            //     "id": "q60",
+            //     "yes": 0
+            // },
+            {
+                "stmt": "believe growing of mangroves will help prevent flooding into residential areas of the coastal villages",
+                "id": "q61",
+                "yes": 0
+            },
+            {
+                "stmt": "think developing artificial coral reefs helps in improving the yield of the catches",
+                "id": "q62",
+                "yes": 0
+            },
+            {
+                "stmt": "think developing hatcheries is helpful for increasing the yield in catches",
+                "id": "q63",
+                "yes": 0
+            },
+            {
+                "stmt": "are aware of the effects of marine pollution",
+                "id": "q64",
+                "yes": 0
+            },
+        ];
+        this.dataset = [this.dataset1, this.dataset2, this.dataset3];
+        this.barDataset1 = [
+            {
+                "stmt": "Reduce Boat Size",
+                "id": "q59_1",
+                "yes": 0
+            },
+            {
+                "stmt": "Control Fishing Area",
+                "id": "q59_2",
+                "yes": 0
+            },
+            {
+                "stmt": "Control During Ban Period",
+                "id": "q59_3",
+                "yes": 0
+            },
+            {
+                "stmt": "Limit Fishing Duration",
+                "id": "q59_4",
+                "yes": 0
+            },
+            {
+                "stmt": "Restriction on Fishing Gears",
+                "id": "q59_5",
+                "yes": 0
+            },
+        ];
+        this.barDataset2 = [
+            {
+                "stmt": "Stop Plastic Usage at Sea",
+                "id": "q60_1",
+                "yes": 0
+            },
+            {
+                "stmt": "Prevent Industrial Waste Dump at Sea",
+                "id": "q60_2",
+                "yes": 0
+            },
+            {
+                "stmt": "Prevent Sewage Waste Thrown into Sea",
+                "id": "q60_3",
+                "yes": 0
+            },
+            {
+                "stmt": "Prevent Oil Spillage",
+                "id": "q60_4",
+                "yes": 0
+            },
+            {
+                "stmt": "Stop Human Waste",
+                "id": "q60_5",
+                "yes": 0
+            },
+        ];
+        this.barDataset3 = [
+            {
+                "stmt": "Avoid Chemicals",
+                "id": "q65_1",
+                "yes": 0
+            },
+            {
+                "stmt": "Avoid Washing at Sea",
+                "id": "q65_2",
+                "yes": 0
+            },
+            {
+                "stmt": "Influencing Policy Makers",
+                "id": "q65_3",
+                "yes": 0
+            },
+            {
+                "stmt": "Volunteer at Polution Site",
+                "id": "q65_4",
+                "yes": 0
+            },
+            {
+                "stmt": "Ensure No Debris & Waste is Dumped into Sea",
+                "id": "q65_5",
+                "yes": 0
+            },
+        ];
+        this.barDatasets = [this.barDataset1, this.barDataset2, this.barDataset3];
+        this.currentDataset = this.dataset1;
+        this.currentId = 0;
+        this.isBarDrawn = false;
+    }
     ngOnInit() {
-        this.tableData1 = {
-            headerRow: ['ID', 'Name', 'Country', 'City', 'Salary'],
-            dataRows: [
-                ['1', 'Dakota Rice', 'Niger', 'Oud-Turnhout', '$36,738'],
-                ['2', 'Minerva Hooper', 'Curaçao', 'Sinaai-Waas', '$23,789'],
-                ['3', 'Sage Rodriguez', 'Netherlands', 'Baileux', '$56,142'],
-                ['4', 'Philip Chaney', 'Korea, South', 'Overland Park', '$38,735'],
-                ['5', 'Doris Greene', 'Malawi', 'Feldkirchen in Kärnten', '$63,542'],
-                ['6', 'Mason Porter', 'Chile', 'Gloucester', '$78,615']
-            ]
-        };
-        this.tableData2 = {
-            headerRow: ['ID', 'Name', 'Salary', 'Country', 'City'],
-            dataRows: [
-                ['1', 'Dakota Rice', '$36,738', 'Niger', 'Oud-Turnhout'],
-                ['2', 'Minerva Hooper', '$23,789', 'Curaçao', 'Sinaai-Waas'],
-                ['3', 'Sage Rodriguez', '$56,142', 'Netherlands', 'Baileux'],
-                ['4', 'Philip Chaney', '$38,735', 'Korea, South', 'Overland Park'],
-                ['5', 'Doris Greene', '$63,542', 'Malawi', 'Feldkirchen in Kärnten',],
-                ['6', 'Mason Porter', '$78,615', 'Chile', 'Gloucester']
-            ]
-        };
+        this._so.newCSVData
+            // The subscription is alive until the isStopped is set to true by the next and complete in ngOnDestroy
+            .pipe(Object(rxjs_operators__WEBPACK_IMPORTED_MODULE_4__["takeUntil"])(this.unsubscribe$))
+            .subscribe(newCSVData => {
+            Promise.resolve(null).then(() => {
+                this.csvData = newCSVData;
+                this.populate();
+            });
+        });
+    }
+    ngOnDestroy() {
+        // Prevent memory leaking
+        this.unsubscribe$.next();
+        this.unsubscribe$.complete();
+    }
+    populate() {
+        this.totalCount = this.csvData.length - 1;
+        this.csvData.forEach(value => {
+            if (value["id"] === "")
+                return;
+            this.currentDataset.forEach((ds, i) => {
+                if (parseInt(value[ds['id']]) == 1)
+                    ds['yes'] += 1;
+            });
+            if (this.currentId == 2 && this.isBarDrawn == false) {
+                this.barDataset1.forEach((ds, i) => {
+                    if (parseInt(value[ds['id']]) == 1)
+                        ds['yes'] += 1;
+                });
+                this.barDataset2.forEach((ds, i) => {
+                    if (parseInt(value[ds['id']]) == 1)
+                        ds['yes'] += 1;
+                });
+                this.barDataset3.forEach((ds, i) => {
+                    if (parseInt(value[ds['id']]) == 1)
+                        ds['yes'] += 1;
+                });
+            }
+        });
+        if (this.currentId == 2)
+            this.drawBarCharts();
+    }
+    typeSelect(value) {
+        this.currentId = value;
+        this.currentDataset = this.dataset[value];
+        this.populate();
+    }
+    drawBarCharts() {
+        if (this.isBarDrawn == true)
+            return;
+        this.isBarDrawn = true;
+        let counts1 = [];
+        let labels1 = [];
+        Object.values(this.barDatasets[0]).forEach(v => {
+            counts1.push(v['yes']);
+            labels1.push(v['stmt']);
+        });
+        let dataset1 = [{
+                label: "# of people who said yes",
+                data: counts1,
+                backgroundColor: '#003f5c'
+            }];
+        let canvas = document.getElementById("barChart1");
+        let ctx = canvas.getContext("2d");
+        new chart_js__WEBPACK_IMPORTED_MODULE_5___default.a(ctx, {
+            type: 'bar',
+            data: {
+                labels: labels1,
+                datasets: dataset1
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                            stacked: true
+                        }],
+                    yAxes: [{
+                            stacked: true
+                        }]
+                }
+            }
+        });
+        let counts2 = [];
+        let labels2 = [];
+        Object.values(this.barDatasets[1]).forEach(v => {
+            counts2.push(v['yes']);
+            labels2.push(v['stmt']);
+        });
+        let dataset2 = [{
+                label: "# of people who said yes",
+                data: counts2,
+                backgroundColor: '#37d493'
+            }];
+        let canvas2 = document.getElementById("barChart2");
+        let ctx2 = canvas2.getContext("2d");
+        new chart_js__WEBPACK_IMPORTED_MODULE_5___default.a(ctx2, {
+            type: 'bar',
+            data: {
+                labels: labels2,
+                datasets: dataset2
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                            stacked: true
+                        }],
+                    yAxes: [{
+                            stacked: true
+                        }]
+                }
+            }
+        });
+        let counts3 = [];
+        let labels3 = [];
+        Object.values(this.barDatasets[2]).forEach(v => {
+            counts3.push(v['yes']);
+            labels3.push(v['stmt']);
+        });
+        let dataset3 = [{
+                label: "# of people who said yes",
+                data: counts3,
+                backgroundColor: '#fcc468'
+            }];
+        let canvas3 = document.getElementById("barChart3");
+        let ctx3 = canvas3.getContext("2d");
+        new chart_js__WEBPACK_IMPORTED_MODULE_5___default.a(ctx3, {
+            type: 'bar',
+            data: {
+                labels: labels3,
+                datasets: dataset3
+            },
+            options: {
+                scales: {
+                    xAxes: [{
+                            stacked: true
+                        }],
+                    yAxes: [{
+                            stacked: true
+                        }]
+                }
+            }
+        });
     }
 };
 TableComponent = tslib__WEBPACK_IMPORTED_MODULE_0__["__decorate"]([
     Object(_angular_core__WEBPACK_IMPORTED_MODULE_1__["Component"])({
         selector: 'table-cmp',
         template: __webpack_require__(/*! raw-loader!./table.component.html */ "./node_modules/raw-loader/index.js!./src/app/pages/table/table.component.html")
-    })
+    }),
+    tslib__WEBPACK_IMPORTED_MODULE_0__["__metadata"]("design:paramtypes", [_services_sibobs_service__WEBPACK_IMPORTED_MODULE_2__["SibobsService"]])
 ], TableComponent);
 
 
@@ -33383,6 +33793,8 @@ var ques;
     ques["workEarnings"] = "q23";
     ques["manageFinancialNeeds"] = "q25";
     ques["workTypeBan"] = "q26";
+    ques["governmentHelp"] = "q28";
+    ques["ngoHelp"] = "q29";
 })(ques || (ques = {}));
 
 
